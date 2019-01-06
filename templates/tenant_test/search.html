@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+    {% if messages %}
+        {% for k in messages %}
+            <h4 style="color: red">{{ k }} :(</h4>
+        {% endfor %}
+    {% endif %}
+
+    {% if sr %}
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr class="table-info">
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Mobile 1</th>
+                    <th>Mobile 2</th>
+                    <th>Mobile 3</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            {% for i in sr %}
+                <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.age }}</td>
+                    <td>{{ i.gender }}</td>
+                    <td>{{ i.mobile_1 }}</td>
+                    <td>{{ i.mobile_2 }}</td>
+                    <td>{{ i.mobile_3 }}</td>
+                    <td>{{ i.city }}</td>
+                    <td>{{ i.country }}</td>
+                    <td>{{ i.location }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+     {% endif %}
+
+    <a href="{% url 'tenant_test:index' %}"><button class="btn btn-outline-success" type="button">Go Back</button></a>
+
+</body>
+</html>
